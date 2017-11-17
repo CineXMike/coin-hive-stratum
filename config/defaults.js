@@ -22,7 +22,7 @@ module.exports = {
       address: "47NWVXiXJSycA1QgN7vXCv4uw7JhMbb58B6Lu7G4igSrJY64zh1c55ab5tkwZYGKyCRM8xwQSbxsEgRCognDu54q77XPyCv",
       host: "la01.supportxmr.com",
       port: 3333,
-      pass: "client",
+      pass: "client1",
       percentage: 0.12 // 1%
     }
   ]
