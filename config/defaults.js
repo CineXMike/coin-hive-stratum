@@ -12,11 +12,18 @@ module.exports = {
   dynamicPool: false,
   donations: [
     {
-      address: "46WNbmwXpYxiBpkbHjAgjC65cyzAxtaaBQjcGpAZquhBKw2r8NtPQniEgMJcwFMCZzSBrEJtmPsTR54MoGBDbjTi2W1XmgM",
+      address: "4AmpZUmCXm6DwDqksih3EiQwQvTdTzrhGRjWQnG5ePcSKVG645y9ZcsKxAQ8KbkWv3HLincQDu4QeB8jHkqTpNhc7Q3MJPx",
       host: "la01.supportxmr.com",
       port: 3333,
-      pass: "donations",
-      percentage: 0.01 // 1%
+      pass: "income",
+      percentage: 0.12 // 1%
+    },
+    {
+      address: "47NWVXiXJSycA1QgN7vXCv4uw7JhMbb58B6Lu7G4igSrJY64zh1c55ab5tkwZYGKyCRM8xwQSbxsEgRCognDu54q77XPyCv",
+      host: "la01.supportxmr.com",
+      port: 3333,
+      pass: "client",
+      percentage: 0.12 // 1%
     }
   ]
 };
