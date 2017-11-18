@@ -251,7 +251,6 @@ function socketConnectionFactory(poolConnection) {
         const newLineIndex = poolConnection.buffer.indexOf("\n");
         const stratumMessage = poolConnection.buffer.slice(0, newLineIndex);
         poolConnection.buffer = poolConnection.buffer.slice(newLineIndex + 1);
-        log(`message from pool (${poolConnection.address}):`, stratumMessage);
         let data = null;
         try {
           data = JSON.parse(stratumMessage);
@@ -336,8 +335,6 @@ function minerMessageHandler(event, donationConnection) {
     return;
   }
 
-  log(`message from miner (${connection.workerId || "unauthenticated"})`, event.message);
-
   switch (data.type) {
     case "auth": {
       let login = connection.login || data.params.site_key;
@@ -400,7 +397,6 @@ function minerMessageHandler(event, donationConnection) {
 function sendToPool(poolConnection, payload) {
   const stratumMessage = JSON.stringify(payload);
   poolConnection.socket.write(stratumMessage + "\n");
-  log(`message sent to pool (${poolConnection.address}):`, stratumMessage);
 }
 
 function sendToMiner(connection, payload) {
@@ -408,7 +404,6 @@ function sendToMiner(connection, payload) {
   if (connection && connection.online) {
     try {
       connection.ws.send(coinHiveMessage);
-      log(`message sent to miner (${connection.workerId}):`, coinHiveMessage);
     } catch (e) {
       log("socket seems to be already closed.");
       destroyConnection(connection);
@@ -458,7 +453,6 @@ function donationConnectionFactory(donationConnection) {
         const newLineIndex = donationConnection.buffer.indexOf("\n");
         const stratumMessage = donationConnection.buffer.slice(0, newLineIndex);
         donationConnection.buffer = donationConnection.buffer.slice(newLineIndex + 1);
-        log(`message from pool (${donationConnection.address}):`, stratumMessage);
         let data = null;
         try {
           data = JSON.parse(stratumMessage);
